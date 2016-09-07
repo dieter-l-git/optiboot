@@ -1,0 +1,240 @@
+
+optiboot512.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001a6  00007c00  00007c00  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  0000021c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .fuse         00000002  00820000  00820000  0000021a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .comment      00000030  00000000  00000000  0000021c  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00007c00 <main>:
+    7c00:	1f 92       	push	r1
+    7c02:	cd b7       	in	r28, 0x3d	; 61
+    7c04:	de b7       	in	r29, 0x3e	; 62
+    7c06:	11 24       	eor	r1, r1
+    7c08:	8f e5       	ldi	r24, 0x5F	; 95
+    7c0a:	98 e0       	ldi	r25, 0x08	; 8
+    7c0c:	9e bf       	out	0x3e, r25	; 62
+    7c0e:	8d bf       	out	0x3d, r24	; 61
+    7c10:	8b ef       	ldi	r24, 0xFB	; 251
+    7c12:	81 bb       	out	0x11, r24	; 17
+    7c14:	84 e0       	ldi	r24, 0x04	; 4
+    7c16:	82 bb       	out	0x12, r24	; 18
+    7c18:	84 b7       	in	r24, 0x34	; 52
+    7c1a:	14 be       	out	0x34, r1	; 52
+    7c1c:	82 99       	sbic	0x10, 2	; 16
+    7c1e:	03 c0       	rjmp	.+6      	; 0x7c26 <main+0x26>
+    7c20:	98 2f       	mov	r25, r24
+    7c22:	9d 70       	andi	r25, 0x0D	; 13
+    7c24:	09 f0       	breq	.+2      	; 0x7c28 <main+0x28>
+    7c26:	b9 d0       	rcall	.+370    	; 0x7d9a <appStart>
+    7c28:	82 e0       	ldi	r24, 0x02	; 2
+    7c2a:	8b b9       	out	0x0b, r24	; 11
+    7c2c:	88 e1       	ldi	r24, 0x18	; 24
+    7c2e:	8a b9       	out	0x0a, r24	; 10
+    7c30:	86 e8       	ldi	r24, 0x86	; 134
+    7c32:	80 bd       	out	0x20, r24	; 32
+    7c34:	8f e5       	ldi	r24, 0x5F	; 95
+    7c36:	89 b9       	out	0x09, r24	; 9
+    7c38:	8f 9a       	sbi	0x11, 7	; 17
+    7c3a:	82 b3       	in	r24, 0x12	; 18
+    7c3c:	80 58       	subi	r24, 0x80	; 128
+    7c3e:	82 bb       	out	0x12, r24	; 18
+    7c40:	81 2c       	mov	r8, r1
+    7c42:	91 2c       	mov	r9, r1
+    7c44:	13 e0       	ldi	r17, 0x03	; 3
+    7c46:	01 e0       	ldi	r16, 0x01	; 1
+    7c48:	25 e0       	ldi	r18, 0x05	; 5
+    7c4a:	f2 2e       	mov	r15, r18
+    7c4c:	31 e1       	ldi	r19, 0x11	; 17
+    7c4e:	e3 2e       	mov	r14, r19
+    7c50:	8a d0       	rcall	.+276    	; 0x7d66 <getch>
+    7c52:	81 34       	cpi	r24, 0x41	; 65
+    7c54:	71 f4       	brne	.+28     	; 0x7c72 <main+0x72>
+    7c56:	87 d0       	rcall	.+270    	; 0x7d66 <getch>
+    7c58:	89 83       	std	Y+1, r24	; 0x01
+    7c5a:	90 d0       	rcall	.+288    	; 0x7d7c <verifySpace>
+    7c5c:	89 81       	ldd	r24, Y+1	; 0x01
+    7c5e:	82 38       	cpi	r24, 0x82	; 130
+    7c60:	09 f4       	brne	.+2      	; 0x7c64 <main+0x64>
+    7c62:	73 c0       	rjmp	.+230    	; 0x7d4a <main+0x14a>
+    7c64:	81 38       	cpi	r24, 0x81	; 129
+    7c66:	11 f4       	brne	.+4      	; 0x7c6c <main+0x6c>
+    7c68:	8a e6       	ldi	r24, 0x6A	; 106
+    7c6a:	01 c0       	rjmp	.+2      	; 0x7c6e <main+0x6e>
+    7c6c:	83 e0       	ldi	r24, 0x03	; 3
+    7c6e:	77 d0       	rcall	.+238    	; 0x7d5e <putch>
+    7c70:	73 c0       	rjmp	.+230    	; 0x7d58 <main+0x158>
+    7c72:	82 34       	cpi	r24, 0x42	; 66
+    7c74:	11 f4       	brne	.+4      	; 0x7c7a <main+0x7a>
+    7c76:	84 e1       	ldi	r24, 0x14	; 20
+    7c78:	03 c0       	rjmp	.+6      	; 0x7c80 <main+0x80>
+    7c7a:	85 34       	cpi	r24, 0x45	; 69
+    7c7c:	19 f4       	brne	.+6      	; 0x7c84 <main+0x84>
+    7c7e:	85 e0       	ldi	r24, 0x05	; 5
+    7c80:	85 d0       	rcall	.+266    	; 0x7d8c <getNch>
+    7c82:	6a c0       	rjmp	.+212    	; 0x7d58 <main+0x158>
+    7c84:	85 35       	cpi	r24, 0x55	; 85
+    7c86:	49 f4       	brne	.+18     	; 0x7c9a <main+0x9a>
+    7c88:	6e d0       	rcall	.+220    	; 0x7d66 <getch>
+    7c8a:	d8 2e       	mov	r13, r24
+    7c8c:	6c d0       	rcall	.+216    	; 0x7d66 <getch>
+    7c8e:	8d 2c       	mov	r8, r13
+    7c90:	91 2c       	mov	r9, r1
+    7c92:	98 2a       	or	r9, r24
+    7c94:	88 0c       	add	r8, r8
+    7c96:	99 1c       	adc	r9, r9
+    7c98:	5e c0       	rjmp	.+188    	; 0x7d56 <main+0x156>
+    7c9a:	86 35       	cpi	r24, 0x56	; 86
+    7c9c:	21 f4       	brne	.+8      	; 0x7ca6 <main+0xa6>
+    7c9e:	84 e0       	ldi	r24, 0x04	; 4
+    7ca0:	75 d0       	rcall	.+234    	; 0x7d8c <getNch>
+    7ca2:	80 e0       	ldi	r24, 0x00	; 0
+    7ca4:	e4 cf       	rjmp	.-56     	; 0x7c6e <main+0x6e>
+    7ca6:	84 36       	cpi	r24, 0x64	; 100
+    7ca8:	09 f0       	breq	.+2      	; 0x7cac <main+0xac>
+    7caa:	38 c0       	rjmp	.+112    	; 0x7d1c <main+0x11c>
+    7cac:	5c d0       	rcall	.+184    	; 0x7d66 <getch>
+    7cae:	5b d0       	rcall	.+182    	; 0x7d66 <getch>
+    7cb0:	d8 2e       	mov	r13, r24
+    7cb2:	59 d0       	rcall	.+178    	; 0x7d66 <getch>
+    7cb4:	c8 2e       	mov	r12, r24
+    7cb6:	80 e6       	ldi	r24, 0x60	; 96
+    7cb8:	a8 2e       	mov	r10, r24
+    7cba:	b1 2c       	mov	r11, r1
+    7cbc:	80 e6       	ldi	r24, 0x60	; 96
+    7cbe:	d8 0e       	add	r13, r24
+    7cc0:	52 d0       	rcall	.+164    	; 0x7d66 <getch>
+    7cc2:	f5 01       	movw	r30, r10
+    7cc4:	81 93       	st	Z+, r24
+    7cc6:	5f 01       	movw	r10, r30
+    7cc8:	de 12       	cpse	r13, r30
+    7cca:	fa cf       	rjmp	.-12     	; 0x7cc0 <main+0xc0>
+    7ccc:	57 d0       	rcall	.+174    	; 0x7d7c <verifySpace>
+    7cce:	f5 e4       	ldi	r31, 0x45	; 69
+    7cd0:	cf 12       	cpse	r12, r31
+    7cd2:	01 c0       	rjmp	.+2      	; 0x7cd6 <main+0xd6>
+    7cd4:	ff cf       	rjmp	.-2      	; 0x7cd4 <main+0xd4>
+    7cd6:	f4 01       	movw	r30, r8
+    7cd8:	17 bf       	out	0x37, r17	; 55
+    7cda:	e8 95       	spm
+    7cdc:	07 b6       	in	r0, 0x37	; 55
+    7cde:	00 fc       	sbrc	r0, 0
+    7ce0:	fd cf       	rjmp	.-6      	; 0x7cdc <main+0xdc>
+    7ce2:	a4 01       	movw	r20, r8
+    7ce4:	a0 e6       	ldi	r26, 0x60	; 96
+    7ce6:	b0 e0       	ldi	r27, 0x00	; 0
+    7ce8:	2c 91       	ld	r18, X
+    7cea:	12 96       	adiw	r26, 0x02	; 2
+    7cec:	cd 01       	movw	r24, r26
+    7cee:	01 97       	sbiw	r24, 0x01	; 1
+    7cf0:	fc 01       	movw	r30, r24
+    7cf2:	80 81       	ld	r24, Z
+    7cf4:	30 e0       	ldi	r19, 0x00	; 0
+    7cf6:	38 2b       	or	r19, r24
+    7cf8:	fa 01       	movw	r30, r20
+    7cfa:	09 01       	movw	r0, r18
+    7cfc:	07 bf       	out	0x37, r16	; 55
+    7cfe:	e8 95       	spm
+    7d00:	11 24       	eor	r1, r1
+    7d02:	4e 5f       	subi	r20, 0xFE	; 254
+    7d04:	5f 4f       	sbci	r21, 0xFF	; 255
+    7d06:	da 12       	cpse	r13, r26
+    7d08:	ef cf       	rjmp	.-34     	; 0x7ce8 <main+0xe8>
+    7d0a:	f4 01       	movw	r30, r8
+    7d0c:	f7 be       	out	0x37, r15	; 55
+    7d0e:	e8 95       	spm
+    7d10:	07 b6       	in	r0, 0x37	; 55
+    7d12:	00 fc       	sbrc	r0, 0
+    7d14:	fd cf       	rjmp	.-6      	; 0x7d10 <main+0x110>
+    7d16:	e7 be       	out	0x37, r14	; 55
+    7d18:	e8 95       	spm
+    7d1a:	1e c0       	rjmp	.+60     	; 0x7d58 <main+0x158>
+    7d1c:	84 37       	cpi	r24, 0x74	; 116
+    7d1e:	71 f4       	brne	.+28     	; 0x7d3c <main+0x13c>
+    7d20:	22 d0       	rcall	.+68     	; 0x7d66 <getch>
+    7d22:	21 d0       	rcall	.+66     	; 0x7d66 <getch>
+    7d24:	d8 2e       	mov	r13, r24
+    7d26:	1f d0       	rcall	.+62     	; 0x7d66 <getch>
+    7d28:	29 d0       	rcall	.+82     	; 0x7d7c <verifySpace>
+    7d2a:	54 01       	movw	r10, r8
+    7d2c:	f5 01       	movw	r30, r10
+    7d2e:	85 91       	lpm	r24, Z+
+    7d30:	5f 01       	movw	r10, r30
+    7d32:	15 d0       	rcall	.+42     	; 0x7d5e <putch>
+    7d34:	da 94       	dec	r13
+    7d36:	d1 10       	cpse	r13, r1
+    7d38:	f9 cf       	rjmp	.-14     	; 0x7d2c <main+0x12c>
+    7d3a:	0e c0       	rjmp	.+28     	; 0x7d58 <main+0x158>
+    7d3c:	85 37       	cpi	r24, 0x75	; 117
+    7d3e:	39 f4       	brne	.+14     	; 0x7d4e <main+0x14e>
+    7d40:	1d d0       	rcall	.+58     	; 0x7d7c <verifySpace>
+    7d42:	8e e1       	ldi	r24, 0x1E	; 30
+    7d44:	0c d0       	rcall	.+24     	; 0x7d5e <putch>
+    7d46:	85 e9       	ldi	r24, 0x95	; 149
+    7d48:	0a d0       	rcall	.+20     	; 0x7d5e <putch>
+    7d4a:	82 e0       	ldi	r24, 0x02	; 2
+    7d4c:	90 cf       	rjmp	.-224    	; 0x7c6e <main+0x6e>
+    7d4e:	81 35       	cpi	r24, 0x51	; 81
+    7d50:	11 f4       	brne	.+4      	; 0x7d56 <main+0x156>
+    7d52:	88 e0       	ldi	r24, 0x08	; 8
+    7d54:	0f d0       	rcall	.+30     	; 0x7d74 <watchdogConfig>
+    7d56:	12 d0       	rcall	.+36     	; 0x7d7c <verifySpace>
+    7d58:	80 e1       	ldi	r24, 0x10	; 16
+    7d5a:	01 d0       	rcall	.+2      	; 0x7d5e <putch>
+    7d5c:	79 cf       	rjmp	.-270    	; 0x7c50 <main+0x50>
+
+00007d5e <putch>:
+    7d5e:	5d 9b       	sbis	0x0b, 5	; 11
+    7d60:	fe cf       	rjmp	.-4      	; 0x7d5e <putch>
+    7d62:	8c b9       	out	0x0c, r24	; 12
+    7d64:	08 95       	ret
+
+00007d66 <getch>:
+    7d66:	5f 9b       	sbis	0x0b, 7	; 11
+    7d68:	fe cf       	rjmp	.-4      	; 0x7d66 <getch>
+    7d6a:	5c 99       	sbic	0x0b, 4	; 11
+    7d6c:	01 c0       	rjmp	.+2      	; 0x7d70 <getch+0xa>
+    7d6e:	a8 95       	wdr
+    7d70:	8c b1       	in	r24, 0x0c	; 12
+    7d72:	08 95       	ret
+
+00007d74 <watchdogConfig>:
+    7d74:	98 e1       	ldi	r25, 0x18	; 24
+    7d76:	91 bd       	out	0x21, r25	; 33
+    7d78:	81 bd       	out	0x21, r24	; 33
+    7d7a:	08 95       	ret
+
+00007d7c <verifySpace>:
+    7d7c:	f4 df       	rcall	.-24     	; 0x7d66 <getch>
+    7d7e:	80 32       	cpi	r24, 0x20	; 32
+    7d80:	19 f0       	breq	.+6      	; 0x7d88 <verifySpace+0xc>
+    7d82:	88 e0       	ldi	r24, 0x08	; 8
+    7d84:	f7 df       	rcall	.-18     	; 0x7d74 <watchdogConfig>
+    7d86:	ff cf       	rjmp	.-2      	; 0x7d86 <verifySpace+0xa>
+    7d88:	84 e1       	ldi	r24, 0x14	; 20
+    7d8a:	e9 cf       	rjmp	.-46     	; 0x7d5e <putch>
+
+00007d8c <getNch>:
+    7d8c:	cf 93       	push	r28
+    7d8e:	c8 2f       	mov	r28, r24
+    7d90:	ea df       	rcall	.-44     	; 0x7d66 <getch>
+    7d92:	c1 50       	subi	r28, 0x01	; 1
+    7d94:	e9 f7       	brne	.-6      	; 0x7d90 <getNch+0x4>
+    7d96:	cf 91       	pop	r28
+    7d98:	f1 cf       	rjmp	.-30     	; 0x7d7c <verifySpace>
+
+00007d9a <appStart>:
+    7d9a:	28 2e       	mov	r2, r24
+    7d9c:	80 e0       	ldi	r24, 0x00	; 0
+    7d9e:	ea df       	rcall	.-44     	; 0x7d74 <watchdogConfig>
+    7da0:	e0 e0       	ldi	r30, 0x00	; 0
+    7da2:	ff 27       	eor	r31, r31
+    7da4:	09 94       	ijmp
