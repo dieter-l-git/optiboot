@@ -54,14 +54,12 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 
 #define LED_BUILTIN 10
 
-#define PIN_A0   (27)
-#define PIN_A1   (26)
-#define PIN_A2   (25)
-#define PIN_A3   (24)
-#define PIN_A4   (23)
-#define PIN_A5   (22)
-#define PIN_A6   (21)
-#define PIN_A7   (20)
+#define PIN_A0   (22)
+#define PIN_A1   (23)
+#define PIN_A2   (24)
+#define PIN_A3   (25)
+#define PIN_A4   (26)
+#define PIN_A5   (27)
 
 static const uint8_t A0 = PIN_A0;
 static const uint8_t A1 = PIN_A1;
@@ -69,8 +67,6 @@ static const uint8_t A2 = PIN_A2;
 static const uint8_t A3 = PIN_A3;
 static const uint8_t A4 = PIN_A4;
 static const uint8_t A5 = PIN_A5;
-static const uint8_t A6 = PIN_A6;
-static const uint8_t A7 = PIN_A7;
 
 #ifdef ARDUINO_MAIN
 
@@ -115,12 +111,12 @@ static const uint8_t A7 = PIN_A7;
 	AREF			29		AREF
 	(ADC7)	PA7		30		D20		NC
 	(ADC6)	PA6		31		D21		NC
-	(ADC5)	PA5		32		D22		A5
-	(ADC4)	PA4		33		D23		A4
-	(ADC3)	PA3		34		D24		A3
-	(ADC2)	PA2		35		D25		A2
-	(ADC1)	PA1		36		D26		A1
-	(ADC0)	PA0		37		D27		A0
+	(ADC5)	PA5		32		D22		A0
+	(ADC4)	PA4		33		D23		A1
+	(ADC3)	PA3		34		D24		A2
+	(ADC2)	PA2		35		D25		A3
+	(ADC1)	PA1		36		D26		A4
+	(ADC0)	PA0		37		D27		A5
 	VCC				38
 	GND				39
 	(XCK)	PB0		40		D4
@@ -177,12 +173,12 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[32] = {
 	PC,  // PC7 ** D19
 	PA,  // PA7 ** D20
 	PA,  // PA6 ** D21
-	PA,  // PA5 ** A5 D22
-	PA,  // PA4 ** A4 D23
-	PA,  // PA3 ** A3 D24
-	PA,  // PA2 ** A2 D25
-	PA,  // PA1 ** A1 D26
-	PA,  // PA0 ** A0 D27
+	PA,  // PA5 ** A0 D22
+	PA,  // PA4 ** A1 D23
+	PA,  // PA3 ** A2 D24
+	PA,  // PA2 ** A3 D25
+	PA,  // PA1 ** A4 D26
+	PA,  // PA0 ** A5 D27
 	PB,  // PB5 ** D28
 	PB,  // PB6 ** D29
 	PB,  // PB7 ** D30
@@ -212,12 +208,12 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[32] = {
 	_BV(7),  // PC7 ** D19
 	_BV(7),  // PA7 ** D20
 	_BV(6),  // PA6 ** D21
-	_BV(5),  // PA5 ** A5 D22
-	_BV(4),  // PA4 ** A4 D23
-	_BV(3),  // PA3 ** A3 D24
-	_BV(2),  // PA2 ** A2 D25
-	_BV(1),  // PA1 ** A1 D26
-	_BV(0),  // PA0 ** A0 D27
+	_BV(5),  // PA5 ** A0 D22
+	_BV(4),  // PA4 ** A1 D23
+	_BV(3),  // PA3 ** A2 D24
+	_BV(2),  // PA2 ** A3 D25
+	_BV(1),  // PA1 ** A4 D26
+	_BV(0),  // PA0 ** A5 D27
 	_BV(5),  // PB5 ** D28
 	_BV(6),  // PB6 ** D29
 	_BV(7),  // PB7 ** D30
@@ -232,7 +228,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[32] = {
 	NOT_ON_TIMER,	// PB0 ** D4
 	NOT_ON_TIMER,	// PB1 ** D5
 	NOT_ON_TIMER,	// PB2 ** D6
-	TIMER0A,		// PB3 ** D7
+	TIMER0A,		// PB3 ** D7	  doesn't work, have to check later
 	NOT_ON_TIMER,	// PD6 ** D8
 	NOT_ON_TIMER,	// PD3 ** D9
 	TIMER2,			// PD7 ** D10
@@ -247,12 +243,12 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[32] = {
 	NOT_ON_TIMER,	// PC7 ** D19
 	NOT_ON_TIMER,	// PA7 ** D20
 	NOT_ON_TIMER,	// PA6 ** D21
-	NOT_ON_TIMER,	// PA5 ** A5 D22
-	NOT_ON_TIMER,	// PA4 ** A4 D23
-	NOT_ON_TIMER,	// PA3 ** A3 D24
-	NOT_ON_TIMER,	// PA2 ** A2 D25
-	NOT_ON_TIMER,	// PA1 ** A1 D26
-	NOT_ON_TIMER,	// PA0 ** A0 D27
+	NOT_ON_TIMER,	// PA5 ** A0 D22
+	NOT_ON_TIMER,	// PA4 ** A1 D23
+	NOT_ON_TIMER,	// PA3 ** A2 D24
+	NOT_ON_TIMER,	// PA2 ** A3 D25
+	NOT_ON_TIMER,	// PA1 ** A4 D26
+	NOT_ON_TIMER,	// PA0 ** A5 D27
 	NOT_ON_TIMER,	// PB5 ** D28
 	NOT_ON_TIMER,	// PB6 ** D29
 	NOT_ON_TIMER,	// PB7 ** D30
